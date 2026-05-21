@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --scale: 1;
-  --base-screen-height: 1440;
-  --px: calc(1vh / var(--base-screen-height) * 100 * var(--scale));
+    --scale: 1;
+    --base-screen-height: 1440;
+    --px: calc(1vh / var(--base-screen-height) * 100 * var(--scale));
 }
 
 body {
-  overflow: hidden;
-  font-family: 'Kanit';
-  margin: 0;
-  padding: 0;
-  user-select: none;
-  background-color: gray;
+    overflow: hidden;
+    font-family: 'Kanit';
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    background-color: gray;
 }
 
-.container{
+.container {
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
@@ -26,30 +26,195 @@ body {
     padding: 0 calc(5*var(--px));
 }
 
-.healthbar{
-    background-color: rgba(255,255,255,0.2);
+.healthbar {
+    font-size: 0;
+    width: calc(560*var(--px));
+    height: auto;
 }
 
-.healthbarBox{
+.healthbarBox {
+    position: relative;
     width: calc(800*var(--px));
     height: calc(100*var(--px));
     display: flex;
     align-items: center;
-    background-color: rgba(255,255,255,0.8);
     gap: calc(5*var(--px));
-    margin-bottom:calc(-5*var(--px));
+    margin-bottom: calc(-5*var(--px));
 }
 
-.scoreboardBox{
+.healthbarsvg {
+    width: inherit;
+    height: inherit;
+}
+
+.healthbarWrapper {
+    width: inherit;
+    height: calc(100*var(--px));
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+
+
+.HealthBarLogo {
+    width: calc(73*var(--px));
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    left: calc(28*var(--px));
+    bottom: calc(40*var(--px));
+}
+
+.textHealth {
+    color: rgb(255, 255, 255);
+    font-size: calc(18*var(--px));
+    position: absolute;
+    left: calc(155*var(--px));
+    bottom: calc(30*var(--px));
+    font-weight: 500;
+}
+
+.voiceBox {
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: white;
+    font-weight: 400;
+    font-size: calc(10*var(--px));
+    line-height: calc(10*var(--px));
+    text-transform: uppercase;
+    width: calc(120*var(--px));
+    height: calc(13*var(--px));
+    left: calc(100*var(--px));
+    bottom: calc(10*var(--px));
+    gap: calc(3*var(--px));
+    /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.voiceMic {
+    width: calc(10*var(--px));
+    height: calc(10*var(--px));
+    color: white;
+    transition: color 275ms ease;
+}
+
+.voiceMic.active {
+    color: #81D8D0;
+}
+
+.voiceMode {
+    position: relative;
+    display: flex;
+    gap: calc(0*var(--px)) calc(4*var(--px));
+    margin-bottom: calc(-1*var(--px));
+}
+
+.voiceMode>.voiceModeItem {
+    width: calc(8*var(--px));
+    height: calc(8*var(--px));
+    /* fill: #29393D; */
+    color: #29393D;
+    transition: color 275ms ease;
+}
+
+.timeBox {
+    width: calc(135*var(--px));
+    height: calc(16*var(--px));
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: calc(8*var(--px));
+    left: calc(220*var(--px));
+    /* background-color: rgba(255, 255, 255, 0.2); */
+}
+
+.timeBox>p {
+    font-size: calc(12*var(--px));
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.userBox {
+    position: absolute;
+    /* background-color: rgba(0, 0, 0, 0.25); */
+    height: calc(20*var(--px));
+    width: calc(80*var(--px));
+    bottom: calc(7*var(--px));
+    left: calc(365*var(--px));
+    display: flex;
+    gap: calc(2*var(--px));
+    align-items: center;
+    color: aliceblue;
+    text-transform: uppercase;
+}
+
+.userBox>img {
+    width: calc(12*var(--px));
+    height: calc(12*var(--px));
+}
+
+.userBox>p>span {
+    color: #81D8D0;
+}
+
+.userBox>p {
+    font-size: calc(12*var(--px));
+    font-weight: 500;
+    display: flex;
+    gap: calc(2*var(--px));
+}
+
+.voiceMode>.voiceModeItem.active {
+    color: #81D8D0
+}
+
+/* end healthbar-section  */
+
+/* food-section  */
+.foodSection {
+    display: flex;
+    width: auto;
+    gap: calc(6*var(--px));
+    margin-bottom: calc(5*var(--px));
+}
+
+.foodBox,
+.BrainsBox,
+.oxygenBox {
+    width: calc(60*var(--px));
+    height: calc(60*var(--px));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foodSectionSvg {
+    width: calc(60*var(--px));
+    height: calc(60*var(--px));
+    object-fit: contain;
+}
+
+.IconFoodBox {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    object-fit: contain;
+}
+
+/* scoreboard */
+.scoreboardBox {
     position: absolute;
     width: inherit;
     height: inherit;
-    background-color: rgba(0,0,0,0.25);
+    /* background-color: rgba(0, 0, 0, 0.25); */
     display: flex;
     justify-content: center;
 }
 
-.scoreboardSection{
+.scoreboardSection {
     position: relative;
     margin-top: calc(175*var(--px));
     width: calc(200*var(--px));
@@ -57,35 +222,7 @@ body {
     background-color: antiquewhite;
 }
 
-.healthbarsvg{
-    width: calc(560*var(--px));
-    height: auto;
-    background-color: rgba(255,255,255,0.2);
+/* utilities  */
+.drop-shadow {
+    filter: drop-shadow(0 0 calc(4*var(--px)) rgba(0, 0, 0, 0.25))
 }
-
-.foodSection{
-    display: flex;
-    width: auto;
-    gap: calc(10*var(--px));
-    margin-bottom: calc(15*var(--px));
-}
-
-.foodBox , .BrainsBox , .oxygenBox{
-    width: calc(60*var(--px));
-    height: calc(60*var(--px));
-    background-color: rgba(255,255,255,0.8);
-}
-
-.foodSectionSvg{
-    width: calc(60*var(--px));
-    height: calc(60*var(--px));
-    object-fit: contain;
-}
-
-.drop-shadow{
-    filter: drop-shadow(0 0 calc(4*var(--px)) rgba(0,0,0,0.25))
-}
-
-                    
-                    
-                    
